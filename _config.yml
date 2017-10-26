@@ -1,0 +1,37 @@
+# Site settings
+title: BenKoren.com
+description: 'The number one stop for all things Ben Koren.'
+url: 'http://benkoren.com'
+baseurl: '/'
+# google_analytics: 'UA-XXXXXX-X'
+# disqus_shortname: 'your-disqus-name'
+
+author
+  name: 'Ben Koren'
+  #email:
+  #twitter_username:
+  #facebook_username:
+  github_username:  benkoren
+  linkedin_username:  benkoren
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+        layout: 'post'
+
+# Build settings
+destination: _site
+paginate: 10
+permalink: /:year/:title/
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+gems: ['jekyll-paginate', 'kramdown']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
