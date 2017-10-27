@@ -12,7 +12,7 @@ layout: default
 	{% if page.comments != false and site.disqus_shortname %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
 
 	<div class="post-meta">
-		<time datetime="{{ page.date | date: "%b %Y" }}" class="post-meta__date date">{{ page.date | date: "%b %Y" }}</time> &#8226; <span class="post-meta__tags">{% for tag in page.tags %}<a href="{{ site.baseurl }}tags/#{{ tag }}">{{ tag }}</a> {% endfor %}</span>
+		<time datetime="{{ page.date | date: "%b %Y" }}" class="post-meta__date date">{{ page.date | date: "%b %Y" }}</time> &#8226;  <span class="post-meta__tags">{% for category in page.categories %}<a href="{{ site.baseurl }}categories/#{{ category }}">{{ category }}</a> {% endfor %}</span>  &#8226; <span class="post-meta__tags">{% for tag in page.tags %}<a href="{{ site.baseurl }}tags/#{{ tag }}">{{ tag }}</a> {% endfor %}</span>
 	</div>
 </article>
 {% if page.comments != false %}{% include disqus.html %}{% endif %}
