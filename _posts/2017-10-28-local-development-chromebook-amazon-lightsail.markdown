@@ -108,13 +108,36 @@ Next, fill in the connection info using `ubuntu` as the username and the IP addr
 
 ### Install our IDE
 
-To install vim and tmux, run the following command: `sudo apt-get install -y vim tmux tmuxinator git`.
+To install vim and tmux, run the following command: `sudo apt-get install -y vim tmux tmuxinator git`. Alright, maybe it doesn't deserve the distinction of "IDE" _quite_ yet, but that's all there is to our initial installation.
 
 
 ## Using the Environment
 
+This will not be an exhaustive tutorial on `vim` and `tmux`, but I'll do my best to give you a little taste and then point you in the right direction. Well maybe not the _right_ direction, but I'm going to point you in _a_ direction. Think of this like a buffet where I point out a handful of dishes I prefer, but important that you follow your nose, and don't hesitate to go back up for seconds. And thirds. Then a nap. 
+
+Like my kids eating cake, we're going to start with the frosting first. That is to say, from the outside in: we're going to take a look at our window manager.
+
+
+### Tmux: Our Window Manager
+
+Tmux is a bit clunky out of the box, so before we even open it up we're going to change a few things to meet our _Comfy Factor_ requirement. Remember it's important to rebind our keys _before_ we start to interact with the application; the 
+
+Tmux has _windows_ ( similar to browser tabs) and _panes_ (similar to regions of a website within a browser tab). 
+
+(TODO: Screenshot)
+
+
+
+
+tmuxinator
+
 
 ### Getting cozy with Vim
+
+If you're completely unfamiliar with Vim, [this interactive tutorial][vim-tutorial] is a good place to start. To really get Vim humming though, you'll need some plugins.
+
+
+
 
 tutorial
 
@@ -124,16 +147,12 @@ color scheme
 
 My dotfiles
 
-### Tmux: 
-
-key bindings
-
-tmuxinator
 
 
 
 
-## 
+
+## My dotfiles
 
 
 
@@ -170,3 +189,4 @@ Spacemacs
 [dvorak]: https://en.wikipedia.org/wiki/Dvorak_Simplified_Keyboard
 [tmux]: https://github.com/tmux/tmux
 [secureshell]: https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?hl=en
+[vim-tutorial]: http://www.openvim.com/
