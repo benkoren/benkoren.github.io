@@ -51,6 +51,36 @@ Once you've set up your server, download the corresponding SSH Keypair from the 
 
 
 ### Setting up the Chromebook
+The `.pem` file given to us by Lightsail is not quite digestible enough for the application we'll be using. To fix this, we'll need to enable Chrome's Developer Mode, which will allow us to run the necessary commands. Be warned: turning on Developer Mode will reset your Chromebook to factory settings, which wipes out local storage. This would be a good time to make sure your Google account syncing is set up. If this is an issue for you, then you may consider converting your `.pem` file on another machine and then transferring the necessary files to your Chromebook. 
+
+#### Enable Developer Mode
+_(Hint: if you're reading this on the same machine on which you'll be performing the steps, then you may want to write the steps on a scratchpad.)_
+
+First, we'll boot the Chromebook in Recovery Mode by holding down the *Esc* and *Refresh* (F3) keys and then tap the *Power* key.
+
+(TODO: Insert photo)
+
+
+Your machine will reboot, and you will be presented with a recovery screen. Press *Ctrl-D*.
+
+(TODO: Insert photo)
+
+
+You'll then be asked if you'd like to turn off OS Verification. Press *Enter*.
+
+
+Note: when you reboot (and every time you boot), you'll be told that OS Verification is off and that you can press the spacebar to re-enable it. Do _not_ press Space.
+
+
+#### Convert our SSH Key
+
+todo
+
+
+Email yourself the converted key
+
+
+#### Install and configure SSH Client
 
 On your Chromebook, install the [Secure Shell][secureshell] extension. This is highly-preferred over the built-in SSH client in Chrome because of the _Comfy Factor_ requirement.
 
