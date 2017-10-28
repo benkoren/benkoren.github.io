@@ -39,11 +39,13 @@ Plus, vim is everywhere. I can't tell you how many times I've watched a develope
 I've already gotten too far into the weeds; let's pull back out and get into setting up this beast.
 
 
+## The Setup
+
 ### Setting up Lightsail
 
 [Amazon Lightsail][lightsail] is essentially Amazon's answer to DigitalOcean: they provide a virtual private server (VPS) that's very affordable (starts at $5/mo) and sports an easy-to-use interface. Despite being very familiar with many of Amazon AWS offerings and being no stranger to bare-bones systems administration, sometimes it's nice to just click a button and have an environment.
 
-Lightsail provides a number of "blueprints" (preconfigured server images for specific use cases) for common software stacks such as LAMP and MEAN, application platforms such as Drupal and Magento, and barebone OSs such as Debian and Amazon Linux. Since this instance will serve as a general PHP and Rails development environment we'll go with a barebones Ubuntu blueprint.
+Lightsail provides a number of "blueprints" (preconfigured server images for specific use cases) for common software stacks such as LAMP and MEAN, application platforms such as Drupal and Magento, and barebone OSs such as Debian and Amazon Linux. Since this instance will serve as a general PHP and Rails development environment we'll go with a barebones Ubuntu (16.04 LTS) blueprint.
 
 (TODO: INSERT SCREENSHOT)
 
@@ -51,7 +53,8 @@ Once you've set up your server, download the corresponding SSH Keypair from the 
 
 
 ### Setting up the Chromebook
-The `.pem` file given to us by Lightsail is not quite digestible enough for the application we'll be using. To fix this, we'll need to enable Chrome's Developer Mode, which will allow us to run the necessary commands. Be warned: turning on Developer Mode will reset your Chromebook to factory settings, which wipes out local storage. This would be a good time to make sure your Google account syncing is set up. If this is an issue for you, then you may consider converting your `.pem` file on another machine and then transferring the necessary files to your Chromebook. 
+The `.pem` file given to us by Lightsail is the private half of the keypair we'll need to authenticate to our server; we need to generate the public half of the pair. To fix this, we'll need to enable Chrome's Developer Mode, which will allow us to run the necessary commands. Be warned: turning on Developer Mode will reset your Chromebook to factory settings, which wipes out local storage. This would be a good time to make sure your Google account syncing is set up. If this is an issue for you, then you may consider converting your `.pem` file on another machine and then transferring the necessary files to your Chromebook. 
+
 
 #### Enable Developer Mode
 _(Hint: if you're reading this on the same machine on which you'll be performing the steps, then you may want to write the steps on a scratchpad.)_
@@ -74,15 +77,20 @@ Note: when you reboot (and every time you boot), you'll be told that OS Verifica
 
 #### Convert our SSH Key
 
-todo
+Press `Ctrl-Alt-T` to open up a terminal tab, then use the following commands to take care of your SSH keypair (replacing `MYKEY` with the name of the file you downloaded from Lightsail earlier:
+1. `cd ~/Downloads`
+2. `chmod 400 MYKEY.pem`
+3. `ssh-keygen -y -f MYKEY.pem > MYKEY.pub`
+4. `mv MYKEY.pem MYKEY`
 
+(TODO: Insert screenshot)
 
-Email yourself the converted key
+Next, do yourself a favor and store the `.pub` key you just generated. If you ever decide to take your Chromebook out of Developer Mode (or, like my kids, someone in your household doesn't know not to press Space when it's starting up...), you'll be able to skip over the whole Developer Mode section the next time you want to set this up.
 
 
 #### Install and configure SSH Client
 
-On your Chromebook, install the [Secure Shell][secureshell] extension. This is highly-preferred over the built-in SSH client in Chrome because of the _Comfy Factor_ requirement.
+Install the [Secure Shell][secureshell] extension. This is highly-preferred over the built-in SSH client in Chrome because of the _Comfy Factor_ requirement.
 
 Speaking of comfy, let's configure Secure Shell by clicking on the Options button and updating a few things:
 * Set `font-size` to `15`.
@@ -91,7 +99,19 @@ Speaking of comfy, let's configure Secure Shell by clicking on the Options butto
 * Select `ctrl-c-copy`
 * Select `ctrl-v-paste`
 
-Before we can use Secure Shell to connect to our Lightsail instance, we need turn our `.pem` file into something more digestible. To do this, press `Ctrl-Alt-T` to open up a terminal tab
+Next, fill in the connection info using `ubuntu` as the username and the IP address you recorded from Lightsail earlier. Then click on the `Import...` link and select your `MYKEY.pub` file. Press `Enter` to connect to your server.
+
+(TODO: screenshot)
+
+(TODO: screenshot)
+
+
+### Install our IDE
+
+To install vim and tmux, run the following command: `sudo apt-get install -y vim tmux tmuxinator git`.
+
+
+## Using the Environment
 
 
 ### Getting cozy with Vim
@@ -102,8 +122,13 @@ key bindings
 
 color scheme
 
+My dotfiles
+
 ### Tmux: 
 
+key bindings
+
+tmuxinator
 
 
 
