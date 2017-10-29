@@ -10,7 +10,7 @@ Today we'll explore how I use a [$170 Chromebook][chromebook], [vim][vim], tmux 
 
 ## Background
 
-I purchased a Chromebook about a year ago for our family's casual computing needs such as web browsing and Google Docs from the comfort of our couch _without_ the sweaty lap that comes from the use of a traditional laptop (or the pricetag!), while still having a standard-sized keyboard. Most importantly, it required absolutely minimal technical effort on my part, even if one of our kids tosses it into the bathtub; we could simply have another unit shipped for a reasonable price, log in, and pick up right where we had left off (after dealing with the bathtub incident, of course). 
+I purchased a Chromebook about a year ago for our family's casual computing needs such as web browsing and Google Docs from the comfort of our couch _without_ the sweaty lap that comes from the use of a traditional laptop (or the pricetag!), while still having a standard-sized keyboard. Most importantly, it required absolutely minimal technical effort on my part, even if one of our kids tosses it into the bathtub; we could simply have another unit shipped for a reasonable price, log in, and pick up right where we had left off (after dealing with the bathtub incident, of course).
 
 Then I decided I'd like this same level of convenience for my work life as a software engineer: I wanted to web development from my Chromebook, but with the following requirements:
 
@@ -53,7 +53,7 @@ Once you've set up your server, download the corresponding SSH Keypair from the 
 
 
 ### Setting up the Chromebook
-The `.pem` file given to us by Lightsail is the private half of the keypair we'll need to authenticate to our server; we need to generate the public half of the pair. To fix this, we'll need to enable Chrome's Developer Mode, which will allow us to run the necessary commands. Be warned: turning on Developer Mode will reset your Chromebook to factory settings, which wipes out local storage. This would be a good time to make sure your Google account syncing is set up. If this is an issue for you, then you may consider converting your `.pem` file on another machine and then transferring the necessary files to your Chromebook. 
+The `.pem` file given to us by Lightsail is the private half of the keypair we'll need to authenticate to our server; we need to generate the public half of the pair. To fix this, we'll need to enable Chrome's Developer Mode, which will allow us to run the necessary commands. Be warned: turning on Developer Mode will reset your Chromebook to factory settings, which wipes out local storage. This would be a good time to make sure your Google account syncing is set up. If this is an issue for you, then you may consider converting your `.pem` file on another machine and then transferring the necessary files to your Chromebook.
 
 
 #### Enable Developer Mode
@@ -92,13 +92,6 @@ Next, do yourself a favor and store the `.pub` key you just generated. If you ev
 
 Install the [Secure Shell][secureshell] extension. This is highly-preferred over the built-in SSH client in Chrome because of the _Comfy Factor_ requirement.
 
-Speaking of comfy, let's configure Secure Shell by clicking on the Options button and updating a few things:
-* Set `font-size` to `15`.
-* Select `copy-on-select`.
-* Select `mouse-right-click-paste`
-* Select `ctrl-c-copy`
-* Select `ctrl-v-paste`
-
 Next, fill in the connection info using `ubuntu` as the username and the IP address you recorded from Lightsail earlier. Then click on the `Import...` link and select your `MYKEY.pub` file. Press `Enter` to connect to your server.
 
 (TODO: screenshot)
@@ -113,54 +106,36 @@ To install vim and tmux, run the following command: `sudo apt-get install -y vim
 
 ## Using the Environment
 
-This will not be an exhaustive tutorial on `vim` and `tmux`, but I'll do my best to give you a little taste and then point you in the right direction. Well maybe not the _right_ direction, but I'm going to point you in _a_ direction. Think of this like a buffet where I point out a handful of dishes I prefer, but important that you follow your nose, and don't hesitate to go back up for seconds. And thirds. Then a nap. 
+This will not be an exhaustive tutorial on `vim` and `tmux`, but I'll do my best to give you a little taste and then point you in the right direction. Well maybe not the _right_ direction, but I'm going to point you in _a_ direction. Think of this like a buffet where I point out a handful of dishes I prefer, but important that you follow your nose, and don't hesitate to go back up for seconds. And thirds. Then a nap.
 
 Like my kids eating cake, we're going to start with the frosting first. That is to say, from the outside in: we're going to take a look at our window manager.
 
 
 ### Tmux: Our Window Manager
 
-Tmux is a bit clunky out of the box, so before we even open it up we're going to change a few things to meet our _Comfy Factor_ requirement. Remember it's important to rebind our keys _before_ we start to interact with the application; the 
-
-Tmux has _windows_ ( similar to browser tabs) and _panes_ (similar to regions of a website within a browser tab). 
+Tmux has _windows_ ( similar to browser tabs) and _panes_ (similar to regions of a website within a browser tab). It also has the ability to detach from an active session and reattach later even from another SSH connection; this meets our _Chair Hopping_ requirement.
 
 (TODO: Screenshot)
 
+Tmux is a bit clunky out of the box, which warrants some custom configuration to truly meet the _Comfy Factor_ requirement. However, diving into my detailed personal preferences is going to have to be the topic of a future post.
 
-
-
-tmuxinator
+While we do have the ability to detach/reattach to tmux sessions, there will still be many times that we'll need to start a new session, which means we'll need to reconfigure our window/pane configuration each time. This is where  [tmuxinator][tmuxinator] comes into play - it allow us to define preconfigured tmux window/pane arrangements that can be used as starting point for a new session. For example, [here][tmuxinator-blog] is the tmuxinator configuration I use for writing on this blog, which uses one single window with a pane for vim on the left and a pane for Jekyll on the right.
 
 
 ### Getting cozy with Vim
 
-If you're completely unfamiliar with Vim, [this interactive tutorial][vim-tutorial] is a good place to start. To really get Vim humming though, you'll need some plugins.
+If you're completely unfamiliar with Vim, [this interactive tutorial][vim-tutorial] is a good place to start. To really get Vim humming though, you'll need some plugins. [Here][vim-awesome] is a reasonable plugin directory to thumb through.
 
+Again, I'm going to avoid detailing my personal preferences today, but feel free
+to reference my [dotfiles][dotfiles] repository for some reasonable defaults. As
+of this writing, the vim plugins I use are in `/vim/.vimrc.bundles`.
 
-
-
-tutorial
-
-key bindings
-
-color scheme
-
-My dotfiles
-
-
-
-
-
-
-## My dotfiles
-
-
-
+(TODO: Screenshot)
 
 
 ## Downsides
 
-Bonus points go to a solution that works offline and that does not degrade as network latency increases. 
+Bonus points go to a solution that works offline and that does not degrade as network latency increases.
 
 Debugging
 
@@ -190,3 +165,8 @@ Spacemacs
 [tmux]: https://github.com/tmux/tmux
 [secureshell]: https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?hl=en
 [vim-tutorial]: http://www.openvim.com/
+[tmuxinator]: https://github.com/tmuxinator/tmuxinator
+[tmuxinator-blog]: https://github.com/benkoren/dotfiles/blob/master/tmux/.tmuxinator/blog.yml
+[vim-awesome]: https://vimawesome.com/
+[dotfiles]: https://github.com/benkoren/dotfiles
+
