@@ -1,25 +1,25 @@
 ---
-title:  "Rails and PHP Development on a Chromebook"
+title:  "Web Development on a Chromebook"
 date:   2017-10-28 04:00:00
 categories: Engineering
 published: true
 tags: Rails, PHP
 ---
-Today we'll explore how I use a [$170 Chromebook][chromebook], [vim][vim], tmux and [Amazon Lightsail][lightsail] to do PHP and Ruby on Rails development.
+Today we'll explore how to use a [$170 Chromebook][chromebook], [vim][vim], tmux and [Amazon Lightsail][lightsail] to do Ruby on Rails, PHP, and Javascript development.
 
 
 ## Background
 
-I purchased a Chromebook about a year ago for our family's casual computing needs such as web browsing and Google Docs from the comfort of our couch _without_ the sweaty lap that comes from the use of a traditional laptop (or the pricetag!), while still having a standard-sized keyboard. Most importantly, it required absolutely minimal technical effort on my part, even if one of our kids tosses it into the bathtub; we could simply have another unit shipped for a reasonable price, log in, and pick up right where we had left off (after dealing with the bathtub incident, of course).
+I purchased a Chromebook about a year ago for our family's casual computing needs, such as web browsing and Google Docs from the comfort of our couch _without_ the sweaty lap that comes from the use of a traditional laptop (or the pricetag!), while still having standard-sized keys. Most importantly, a Chromebook required absolutely minimal technical effort on my part; even if one of our kids tosses it into the bathtub, we could simply have another unit shipped for a reasonable price, log in, and pick up right where we had left off (after dealing with the bathtub incident, of course).
 
 Then I decided I'd like this same level of convenience for my work life as a software engineer: I wanted to web development from my Chromebook, but with the following requirements:
 
-1. *Language-agnostic*: I need a reasonable setup for developing PHP and Ruby on Rails in the immediate term. The solution cannot be language-specific, though I have no immediate interest in the Microsoft languages.
+1. *Language-agnostic*: I need a reasonable setup for developing PHP, Ruby on Rails, Javascript, and HTML/CSS  in the immediate term. The solution cannot be language-specific, though I have no immediate interest in the Microsoft languages.
 2. *Bathtub Test*: if the device is destroyed, I need to be able to pick up where I had left off with minimal effort.
 3. *Debugging*: I need to be able to debug code, and none of this `var_dump()` nonsense. We're professionals, not savages.
-4. *Pricetag*: The solution needs to be reasonably priced, if not free. I'd prefer to spend some time upfront tinkering and working out a clever setup than to shell out money for a sub-optimal pre-packaged setup, but I need to spend a little cash then so be it.
-5. *Comfy Factor*: No list of requirements is complete without a subjective, immeasurable requirement: this needs to _feel_ like a comfy development environment. Yes, I'll only have a single screen that has comparatively low resolution to my dedicated office complete with a mouse, external monitors, and a sound system.
-6. *Chair Hopping*: This is a soft requirement, but I'd like to be able to shift between my work machine in the office and the Chromebook, picking up right where I had left off - even in the middle of an active debugging session.
+4. *Pricetag*: The solution needs to be reasonably priced, if not free. I'd prefer to spend time upfront tinkering and working out a clever setup than to shell out money for a sub-optimal pre-packaged setup, though I need to spend a little cash then so be it.
+5. *Comfy Factor*: No list of requirements is complete without a subjective, immeasurable requirement: this needs to _feel_ like a comfy development environment. I'll only have a single screen that has low resolution, which is in stark contract to my dedicated office complete with a mouse, external monitors, and a sound system. The software will need to compensate, especially for the lack of a mouse and monitor real estate.
+6. *Chair Hopping*: This is a soft requirement, but I'd like to be able to shift between my office machine and the Chromebook, picking up right where I had left off - even in the middle of an active debugging session.
 
 Our final solution meets all of these requirements.
 
@@ -133,27 +133,43 @@ of this writing, the vim plugins I use are in `/vim/.vimrc.bundles`.
 
 This solution is not without its downsides.
 
-First of all,
-Bonus points go to a solution that works offline and that does not degrade as network latency increases.
+First of all, this solution degrades significantly as network latency increases, and is completely unusable the offline. One of the biggest advantages of using Vim is that once its use is committed to muscle memory, it's extremely fast. However, when you're using it over SSH and have a bit of network latency, the screen does not keep up with your typing - very annoying.
 
-Debugging
+Debugging is not nearly as good as when you're in an Eclipse-based IDE. When developing in Rails, `byebug` is passable, but pales in comparison to Eclipse. PHP flat-out fails our _Debugging_ requirement as far as I'm concerned.
 
-Trackpad
+Doing development on a machine with a trackpad rather than a mouse is fatiguing at best. Even if we're using vim, which doesn't require use of the mouse, we still need to use a web browser.
 
-Sound.
+Another downside I'll mention is the ergonomics of keybindings, that is, which
+keys map to which functions in Vim and Tmux. The default key mappings are often
+not very ergonomic. For example, Tmux's control key is `Ctrl-A` by default.
+Given how frequently the command key is used, I remapped this to the tick/tilde
+key (\`), which is much easier to access. The problem with this is how dependent
+this setup is on muscle memory – the longer we wait to rebind a key, the more
+engraind a potentially non-ergonimic configuration is. This is why I recommend
+keeping an eye out for every opportunity you have to rebind from the very day
+you start using vim/tmux; it won't take long for it to become too cumbersome for
+you to want to change.
 
-Ergonomics of key bindings.
+Last, but not least, the keybindings. Maybe I'm just getting old, but it's
+difficult to remember them all. Much like the earlier days of Minecraft when
+you'd need to have a Wiki open just to play the game, I need to have my cheat
+sheet (and google) handy to get things done. Every day I get faster and need to
+look up functions less, but the learning curve is real.
 
 
 ## Further Reading
 
-https://vimawesome.com/
+You can find additional plugins for Vim at the [VimAwesome][vimawesome] site. If
+you ever need to record a screencast of a terminal window,
+[ascriinema][asciinema] is a neat solution. I went with Vim, but I hear good
+things about [Spacemacs][spacemacs] as well.
 
-https://asciinema.org/
+As long as I'm pushing the console applications on you, [Org mode][org-mode] is
+another one to take a look at: it's "_for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system_."
 
-Spacemacs
-
-
+I'm currently using bash because that's the default for most of the
+operating systems I use, but I've heard that [Oh My Zsh][oh-my-zsh] is a worthy
+successor.
 
 
 [chromebook]: http://a.co/8zhnwZW
@@ -168,4 +184,8 @@ Spacemacs
 [tmuxinator-blog]: https://github.com/benkoren/dotfiles/blob/master/tmux/.tmuxinator/blog.yml
 [vim-awesome]: https://vimawesome.com/
 [dotfiles]: https://github.com/benkoren/dotfiles
+[asciinema]: https://asciinema.org/
+[spacemacs]: http://spacemacs.org/
+[org-mode]: http://orgmode.org/
+[oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh
 
