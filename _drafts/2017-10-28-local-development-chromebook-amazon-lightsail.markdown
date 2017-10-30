@@ -32,9 +32,9 @@ Finally though, I've landed on a combination that meets all of my requirements, 
 
 Now, as for that Vim thing, it actually makes a lot of sense on paper: it's language-agnostic, highly-customizable, and significantly more comfy on a Chromebook than a mouse-oriented GUI because you won't be using the trackpad. Furthermore, it supports all of the features I expect from a modern IDE, such as auto-completion, auto-indentation, fuzzy file search, fuzzy text search, git integration, code linting, spell-checking, syntax highlighting, copy/paste, code-completion, code snippets, and all of the language-specific integrations you'd expect.
 
-(TODO: INSERT ANIMATED GIF OR ASCIINEMA SHOWING OFF VIM)
+![Vim file navigation example]({{ "/assets/vim-file-navigation.gif" | absolute_url }})
 
-Plus, vim is everywhere. I can't tell you how many times I've watched a developer SSH into a client's web server and struggle with even the lightests of tasks because they can't cope without their shiny GUIs. Don't get me wrong: there is a moderate learning curve and Vim pretty much _requires_ that you have a deep appreciation for minimalism. The most difficult part of this whole solution is learning Vim, but it's worth the investment.
+Plus, vim is everywhere. I can't tell you how many times I've watched a developer SSH into a client's web server and struggle with even the lightests of tasks because they can't cope without a shiny GUI. Don't get me wrong: there is a moderate learning curve and Vim pretty much _requires_ that you have a deep appreciation for minimalism. The most difficult part of this whole solution is learning Vim, but it's worth the investment.
 
 I've already gotten too far into the weeds; let's pull back out and get into setting up this beast.
 
@@ -47,7 +47,7 @@ I've already gotten too far into the weeds; let's pull back out and get into set
 
 Lightsail provides a number of "blueprints" (preconfigured server images for specific use cases) for common software stacks such as LAMP and MEAN, application platforms such as Drupal and Magento, and barebone OSs such as Debian and Amazon Linux. Since this instance will serve as a general PHP and Rails development environment we'll go with a barebones Ubuntu (16.04 LTS) blueprint.
 
-(TODO: INSERT SCREENSHOT)
+![Lightsail Blueprints]({{ "/assets/lightsail-blueprints.png" | absolute_url }})
 
 Once you've set up your server, download the corresponding SSH Keypair from the [account page][lightsail-account]. It'll be named something like `LightsailDefaultPrivateKey-us-east-2.pem`. Also, find the IP address of your Lightsail instance and make note of it. You'll need these soon.
 
@@ -61,18 +61,15 @@ _(Hint: if you're reading this on the same machine on which you'll be performing
 
 First, we'll boot the Chromebook in Recovery Mode by holding down the *Esc* and *Refresh* (F3) keys and then tap the *Power* key.
 
-(TODO: Insert photo)
-
-
 Your machine will reboot, and you will be presented with a recovery screen. Press *Ctrl-D*.
 
-(TODO: Insert photo)
-
+![Chromebook Developer Mode Installation 1]({{ "/assets/chromebook-dev-mode-1.png" | absolute_url }})
 
 You'll then be asked if you'd like to turn off OS Verification. Press *Enter*.
 
+![Chromebook Developer Mode Installation 2]({{ "/assets/chromebook-dev-mode-2.png" | absolute_url }})
 
-Note: when you reboot (and every time you boot), you'll be told that OS Verification is off and that you can press the spacebar to re-enable it. Do _not_ press Space.
+The Chromebook will then go through its installation process, which will likely take a few minutes. Note: when you reboot (and every time you boot), you'll be told that OS Verification is off and that you can press the spacebar to re-enable it. Do _not_ press Space.
 
 
 #### Convert our SSH Key
@@ -83,9 +80,9 @@ Press `Ctrl-Alt-T` to open up a terminal tab, then use the following commands to
 3. `ssh-keygen -y -f MYKEY.pem > MYKEY.pub`
 4. `mv MYKEY.pem MYKEY`
 
-(TODO: Insert screenshot)
+![Convert SSH Pem to Pub file]({{ "/assets/crosh-shell-keygen.png" | absolute_url }})
 
-Next, do yourself a favor and store the `.pub` key you just generated. If you ever decide to take your Chromebook out of Developer Mode (or, like my kids, someone in your household doesn't know not to press Space when it's starting up...), you'll be able to skip over the whole Developer Mode section the next time you want to set this up.
+Next, do yourself a favor and store the `.pub` key you just generated somewhere other than your Chromebook, even if this just means emailing it to yourself. If you ever decide to take your Chromebook out of Developer Mode (or, like my kids, someone in your household doesn't know not to press Space when it's starting up...), you'll be able to skip over the whole Developer Mode section the next time you want to set this up.
 
 
 #### Install and configure SSH Client
@@ -94,10 +91,9 @@ Install the [Secure Shell][secureshell] extension. This is highly-preferred over
 
 Next, fill in the connection info using `ubuntu` as the username and the IP address you recorded from Lightsail earlier. Then click on the `Import...` link and select your `MYKEY.pub` file. Press `Enter` to connect to your server.
 
-(TODO: screenshot)
+![Chromebook Secure Shell Extension SSH settings]({{ "/assets/chrome-secureshell-settings.png" | absolute_url }})
 
-(TODO: screenshot)
-
+![Initial SSH session into Lightsail instance]({{ "/assets/lightsail-initial-ssh.png" | absolute_url }})
 
 ### Install our IDE
 
@@ -115,7 +111,7 @@ Like my kids eating cake, we're going to start with the frosting first. That is 
 
 Tmux has _windows_ ( similar to browser tabs) and _panes_ (similar to regions of a website within a browser tab). It also has the ability to detach from an active session and reattach later even from another SSH connection; this meets our _Chair Hopping_ requirement.
 
-(TODO: Screenshot)
+![Tmux windows panes example]({{ "/assets/tmux-windows-panes.png" | absolute_url }})
 
 Tmux is a bit clunky out of the box, which warrants some custom configuration to truly meet the _Comfy Factor_ requirement. However, diving into my detailed personal preferences is going to have to be the topic of a future post.
 
@@ -130,11 +126,14 @@ Again, I'm going to avoid detailing my personal preferences today, but feel free
 to reference my [dotfiles][dotfiles] repository for some reasonable defaults. As
 of this writing, the vim plugins I use are in `/vim/.vimrc.bundles`.
 
-(TODO: Screenshot)
+![Vim example]({{ "/assets/lightsail-vim-example.png" | absolute_url }})
 
 
 ## Downsides
 
+This solution is not without its downsides.
+
+First of all,
 Bonus points go to a solution that works offline and that does not degrade as network latency increases.
 
 Debugging
