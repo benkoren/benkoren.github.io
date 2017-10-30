@@ -2,7 +2,7 @@
 title:  "Rails and PHP Development on a Chromebook"
 date:   2017-10-28 04:00:00
 categories: Engineering
-published: false
+published: true
 tags: Rails, PHP
 ---
 Today we'll explore how I use a [$170 Chromebook][chromebook], [vim][vim], tmux and [Amazon Lightsail][lightsail] to do PHP and Ruby on Rails development.
