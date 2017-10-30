@@ -3,7 +3,7 @@ title:  "Web Development on a Chromebook"
 date:   2017-10-28 04:00:00
 categories: Engineering
 published: true
-tags: Rails, PHP
+tags: Ruby, PHP, vim, tmux, AWS
 ---
 Today we'll explore how to use a [$170 Chromebook][chromebook], [vim][vim], tmux and [Amazon Lightsail][lightsail] to do Ruby on Rails, PHP, and Javascript development.
 
@@ -173,7 +173,7 @@ Plugin 'godlygeek/tabular'
 
 This solution is not without its downsides.
 
-First of all, this solution degrades significantly as network latency increases, and is completely unusable the offline. One of the biggest advantages of using Vim is that once its use is committed to muscle memory, it's extremely fast. However, when you're using it over SSH and have a bit of network latency, the screen does not keep up with your typing - very annoying.
+First of all, this solution degrades significantly as network latency increases, and is completely unusable the offline. One of the biggest advantages of using Vim is that once its use is committed to muscle memory, it's extremely fast. However, when you're using it over SSH and have a bit of network latency, the screen does not keep up with your typing. To be honest, this alone is enough reason for me to ditch the approach entirely.
 
 Debugging is not nearly as good as when you're in an Eclipse-based IDE. When developing in Rails, `byebug` is passable, but pales in comparison to Eclipse. PHP flat-out fails our _Debugging_ requirement as far as I'm concerned.
 
