@@ -124,9 +124,49 @@ If you're completely unfamiliar with Vim, [this interactive tutorial][vim-tutori
 
 Again, I'm going to avoid detailing my personal preferences today, but feel free
 to reference my [dotfiles][dotfiles] repository for some reasonable defaults. As
-of this writing, the vim plugins I use are in `/vim/.vimrc.bundles`.
+of this writing, the vim plugins I use are in `/vim/.vimrc.bundles`:
 
-![Vim example]({{ "/assets/lightsail-vim-example.png" | absolute_url }})
+```
+" Theme
+Plugin 'morhetz/gruvbox'
+
+" Plugins
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-markdown'
+Plugin 'airblade/vim-rooter'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'pangloss/vim-javascript'
+Plugin 'ap/vim-css-color'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'Powerline/powerline'
+Plugin 'vim-scripts/BufOnly.vim'
+Plugin 'rizzatti/dash.vim'
+Plugin 'embear/vim-localvimrc'
+Plugin 'craigemery/vim-autotag'
+Plugin 'majutsushi/tagbar'
+Plugin 'diepm/vim-rest-console'
+Plugin 'duff/vim-scratch'
+Plugin 'mxw/vim-jsx'
+Plugin 'pgilad/vim-skeletons'
+Plugin 'SirVer/ultisnips'
+Bundle "honza/vim-snippets"
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plugin 'junegunn/fzf.vim'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'w0rp/ale'
+Plugin 'godlygeek/tabular'
+```
 
 
 ## Downsides
