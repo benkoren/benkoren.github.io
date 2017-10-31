@@ -1,5 +1,5 @@
 ---
-title:  "Web Development on a Chromebook"
+title:  "Web Development on a Chromebook using Lightsail"
 date:   2017-10-28 04:00:00
 categories: Engineering
 published: true
