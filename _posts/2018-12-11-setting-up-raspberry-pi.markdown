@@ -77,6 +77,14 @@ network={
 Why, you might ask? The Internet told me to do this and it worked.
 
 
+## Firewall
+
+I don't know what services this thing is running, nor what it'll be running by the time I'm done cobbling together some
+monstrosity, but now's the time to get a whitelist-based firewall configuration rolling:
+
+TODO
+
+
 
 
 
