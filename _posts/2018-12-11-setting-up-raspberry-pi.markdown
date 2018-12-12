@@ -11,8 +11,7 @@ set of peripherals to get. So I decided to just pick a project - any project, re
 programmable camera for our chicken coop. Or for our driveway. Or for a robot. Or a motion-tracking human-sensing auto-aiming
 nerf gun. Hey look, a butterfly!
 
-All I really know is that I bought a Pi and I've started playing with it, but I am somewhat concerned that one of my kids (or more
-realistically, me) will drop it in the dog's water dish and my progress will be wiped away, so I figure this post is as good of a 
+All I really know is that I bought a Pi and I've started playing with it, but I am somewhat concerned that one of my kids (or more realistically, me) will drop it in the dog's water dish and my progress will be wiped away, so I figure this post is as good of a 
 place as any to chronicle the efforts as a backup.
 
 ## Parts Manifest
@@ -20,14 +19,21 @@ place as any to chronicle the efforts as a backup.
 TODO
 
 
+## Preparing the Hardware
+
+This mostly consists plugging the male parts into matching female parts. Since I opted for a Pi Zero W though, this did make for
+some soldering of the header pins to the main PCB: TODO_INSERT_PHOTO
+
+
 ## Preparing the Storage and Operating System
 
 First, we need to install NOOBS, the de facto Raspberry Pi OS installer, onto the SD card. This is pretty straightforward:
- # Download the latest NOOBS [here](https://www.raspberrypi.org/downloads/noobs/)
- # Use OS X's Disk Utility to reformat the card as FAT32
- # Copy the contents of the NOOBS archive into the freshly-formated disk volume
+1. Download the latest NOOBS [here](https://www.raspberrypi.org/downloads/noobs/)
+2. Use OS X's Disk Utility to reformat the card as FAT32
+3. Copy the contents of the NOOBS archive into the freshly-formated disk volume
 
-Plug that sucker in the Pi and power it on. Follow the steps to install Raspbian; this is very straightforward.
+Plug that sucker in the Pi and power it on. Follow the wizards to install and configure Raspbian; this is all very
+straightforward.
 
 
 ## Fixing Vim
@@ -45,5 +51,33 @@ is to get SSH up and running (even through restarts):
 sudo service ssh start
 sudo update-rc.d ssh enable
 ```
+
+
+## Configuring Wifi
+
+As a part of the Raspbian setup wizard, the wifi should already be configured. However, we'll be running the Pi in runlevel 3,
+which means that the window system will not fire up, which means we'll need to do some more fiddling to get the wifi to
+automatically connect. Modify `/etc/wpa_supplicant/wpa_supplicant.conf` to consist of the following:
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+        ssid="YOUR_SSID"
+        psk="YOUR_PLAINTEXT_WIFI_PASSWORD"
+        scan_ssid=1
+        proto=WPA RSN
+        key_mgmt=WPA-PSK
+        pairwise=CCMP TKIP
+        group=CCMP TKIP
+}
+```
+
+Why, you might ask? The Internet told me to do this and it worked.
+
+
+
+
 
 
