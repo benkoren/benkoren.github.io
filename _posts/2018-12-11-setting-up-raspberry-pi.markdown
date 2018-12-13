@@ -77,12 +77,30 @@ network={
 Why, you might ask? The Internet told me to do this and it worked.
 
 
+## Change the default runlevel
+
+We won't be using the GUI on the Pi, and it eats up resources so we may as well disable it: `sudo systemctl set-default multi-user.target`. This is also a good time to `sudo reboot` to make sure we didn't screw up anything too badly.
+
+
 ## Firewall
 
 I don't know what services this thing is running, nor what it'll be running by the time I'm done cobbling together some
 monstrosity, but now's the time to get a whitelist-based firewall configuration rolling:
 
-TODO
+```
+sudo apt-get install iptables-persistent
+
+sudo iptables -A INPUT -i lo -j ACCEPT
+sudo iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+sudo iptables -A OUTPUT -o lo -j ACCEPT
+sudo iptables -A OUTPUT -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+sudo iptables -P INPUT DROP
+sudo iptables -P OUTPUT DROP
+sudo iptables -P FORWARD DROP
+
+sudo netfilter-persistent save
+```
+
 
 
 
