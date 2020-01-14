@@ -5,17 +5,26 @@ categories: [3dprinting]
 published: false
 tags: [3dprinting]
 ---
-At the end of 2019, I purchased a [Prusa i3 Mk3s][https://www.prusa3d.com/original-prusa-i3-mk3/] 3D printer. I had previously regarded them as somewhat of a gimmick, at least for the consumer-grade versions, whose primary purpose was to pump out flimsy plastic trickets that would quickly make their way into a landfil. However, I've changed my tune for two reasons: working with electronics is far more fun when we can design the things they mount to, and the strength of the plastics able to be printed is impressive.
+I started playing Minecraft about 5 years after it wasn't new and cool any more, so my timing with the 3d printer seems about right.
 
-3d printing is a great way to satisfy my itch for mechanical engineering, electrical engineering
+At the end of 2019, I purchased a [Prusa i3 MK3s][https://www.prusa3d.com/original-prusa-i3-mk3/] 3D printer. I had previously regarded them as somewhat of a gimmick, at least for the consumer-grade versions, whose primary purpose was to pump out flimsy plastic trickets that would quickly make their way into a landfil. However, I've changed my tune for two reasons: working with electronics is far more fun when we can design the things they mount to, and the strength of the plastics able to be printed is impressive.
 
-Getting started with 3d printing is far from turn-key, so hopefully I can shed some light on things that took a good deal of time for me to get right. 
+3d printing is a great way to satisfy my itch for mechanical engineering, electrical engineering, and general tinkering. Wood and metalworking will always have a place for me, but the speed at which I can fabricate inexpensive yet strong parts on the 3d printer is what sets it apart. The technology is far from turn-key, so hopefully I can shed some light on things that took a good deal of time for me to get right. 
 
 
-## Why a Prusa? 
+## Why a Prusa?
+
+Prusa printers are relatively expensive, but they're of a very high quality for the price. More than that though, the company is one I feel I can get behind: they have very humble beginnings as a passion project for a young Josef Prusa, and from what I can tell they have been building an honest business, creating many jobs for their local citizens. [This video][https://www.youtube.com/watch?v=xX3pDDi9PeU] showcases their history. They also do their fair share of supporting the maker community.
+
+I purchased the kit version of the i3 MK3s and took a half day to assemble it, which I do recommend over purchasing the pre-assembled version; the process got me acquainted with the construction (and maintenance) of the printer. 
 
 
 ## Getting Started
+
+I've long maintained that one of the most valuable skills a person can have is that of how to learn. To help accelerate this, here are some resources that greatly helped me along the way:
+* [Bob George (Muppet Labs)][http://projects.ttlexceeded.com/3d_printing.html]
+* [PrusaPrinters.org Forum][https://forum.prusaprinters.org/]
+* [Maker's Muse][https://www.youtube.com/user/TheMakersMuse]
 
 
 ### Filament Choice
@@ -36,7 +45,9 @@ The Prusa uses a heated PEI print surface, which plastic loves to stick to, so r
 The first layer of a print is extremely important; if it doesn't go down well, the print should be cancelled and it should be addressed. However, the first layer calibration built into the Prusa isn't very helpful. 
 
 
-#### Bed & Nozzle Temperature
+#### Temperatures
+
+
 
 #### Print Speeds
 
