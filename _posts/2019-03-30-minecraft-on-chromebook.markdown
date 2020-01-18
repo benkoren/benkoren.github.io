@@ -1,7 +1,7 @@
 ---
 title:  "Running Minecraft on a Chromebook"
 date:   2019-03-30 15:04:23
-categories: [chromebook]
+categories: Technology
 published: true
 tags: [chromebook]
 ---

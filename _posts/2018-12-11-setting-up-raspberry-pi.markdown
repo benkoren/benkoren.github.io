@@ -1,9 +1,9 @@
 ---
 title:  "Setting up the Raspberry Pi Zero W"
 date:   2018-12-11 15:04:23
-categories: [raspberrypi]
+categories: Technology
 published: false
-tags: [raspberrypi]
+tags: [RaspberryPi]
 ---
 I recently picked up a Raspberry Pi Zero W, which is an inexpensive and lightweight version of the Raspberry Pi (yet it still has
 built-in Wifi). I've long-considered buying one of these for general tinkering, but had a hard time settling on which version and

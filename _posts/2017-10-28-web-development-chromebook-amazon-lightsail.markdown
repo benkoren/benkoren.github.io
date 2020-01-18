@@ -1,7 +1,7 @@
 ---
 title:  "Web Development on a Chromebook using Lightsail"
 date:   2017-10-28 04:00:00
-categories: Engineering
+categories: Technology
 published: true
 tags: Ruby, PHP, vim, tmux, AWS
 ---

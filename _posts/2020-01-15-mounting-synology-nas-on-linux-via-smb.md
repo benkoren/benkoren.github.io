@@ -1,7 +1,7 @@
 ---
 title:  "Mounting a Synology NAS on Ununtu Linux via SMB"
 date:   2020-01-15 00:00:00
-categories: [linux]
+categories: Technology
 published: true
 tags: [linux, synology]
 ---
